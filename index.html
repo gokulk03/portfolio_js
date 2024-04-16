@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+
+    <title>Portfolio</title>
+</head>
+<body>
+    <nav>
+        <div class="nav__content">
+            <div class="logo"><a href="#">Gokul</a></div>  
+            <label for="check" class="checkbox">
+                <i class="ri-menu-line"></i>
+            </label>
+            <input type="checkbox" name="check" id="check">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="assets/Gokul_Srinivas_Resume.pdf" target="_blank">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section id="home" class="section">
+        <div class="section__container">
+            <div class="content">
+                <p class="subtitle">Hello</p>
+                <h1 class="title">I'm <span>Gokul<br>a </span>Software Developer</h1>
+                <p class="description">
+                    Welcome to my Website! I'm Gokul Srinivas, a skilled and creative software engineer with a passion for creating beautiful, responsive, and user-friendly websites. I've worked on a variety of web projects, ranging from personal blogs to e-commerce platforms
+                </p>
+                <div class="action__btns">
+                    <button class="hire__me">Hire Me</button>
+                    <button class="hire__me">Portfolio</button>
+                </div>
+            </div>
+            <div class="image">
+                <img src ="assets/about-pic.png" alt="profile" >
+            </div>
+        </div>
+    </section>
+    <section id="about" class="section">
+        <div class="section__container">
+            <div class="content">
+                <h2 class="subtitle">About Me</h2>
+                <p class="description">
+                    I'm a motivated and skilled software developer with a strong foundation in computer science and engineering. I am very passionate about leveraging technology to solve real-world problems and create innovative solutions. With experience in both front-end and back-end development, I am proficient in a variety of programming languages and frameworks. My expertise includes web development, RESTful API development, database management, and more.
+                </p>
+                <p class="description">
+                    Gokul has a Bachelor of Technology degree in Computer Science and Engineering from SRM Institute of Science and Technology, Ramapuram, with an impressive CGPA of 9.19. He has gained valuable experience through internships at CloverBridge Technologies and Anju Software, where he worked on Django development and RESTful API development projects, respectively.
+                </p>
+                <p class="description">
+                    As a proactive learner and problem solver, Gokul continually expands his skills and knowledge. He is proficient in various programming languages such as Python, JavaScript, and C++, as well as frameworks like Django and ReactJS. He is also familiar with cloud technologies, databases, and developer tools.
+                </p>
+                <p class="description">
+                    Apart from technical skills, Gokul possesses strong soft skills including problem-solving, critical thinking, and effective communication. He has taken coursework in data structures and algorithms, object-oriented programming, computer networks, and database management systems. Gokul is particularly interested in web development and machine learning.
+                </p>
+            </div>
+            <div class="skills">
+                <h2 class="subtitle">Technical Skills</h2>
+                <div class="skill-row">
+                    <img src="images/python_img.jpeg" alt="Python">
+                    <img src="images/javascript_img.png" alt="JavaScript">
+                    <img src="images/c++_img.png" alt="C++">
+                </div>
+                <div class="skill-row">
+                    <img src="images/django_img.png" alt="Django">
+                    <img src="images/react.png" alt="React">
+                    <img src="images/mysql_img.png" alt="Database">
+                </div>
+                <!-- Add more skill rows as needed -->
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="projects" class="section">
+        <div class="section__container">
+            <!-- Add projects content here -->
+        </div>
+    </section>
+    <section id="experience" class="section">
+        <div class="section__container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">June 2023 - September 2023</div>
+                    <div class="timeline-content">
+                        <h3>CloverBridge Technologies</h3>
+                        <p>Intern Django Developer</p>
+                        <ul>
+                            <li>Worked with HTML, CSS, JavaScript, and React.</li>
+                            <li>Designed, implemented, and maintained database structure using Django’s ORM.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">March 2024 - May 2024</div>
+                    <div class="timeline-content">
+                        <h3>Anju Software</h3>
+                        <p>Intern Software Development</p>
+                        <ul>
+                            <li>Developed RESTful APIs to manage CRUD operations using Node.js.</li>
+                            <li>Documented codebase, APIs, and technical processes for maintainability and scalability.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="contact" class="section">
+        <div class="section__container">
+            <h2>Contact Me</h2>
+            <p>Feel free to reach out by filling out the form below:</p>
+            <form id="contactForm" action="/contact" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+    
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+    
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const contactForm = document.getElementById("contactForm");
+
+            contactForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+                
+                // Fetch API to submit form data
+                fetch("/contact", {
+                    method: "POST",
+                    body: new FormData(contactForm)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Failed to submit form");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Handle successful form submission
+                    console.log("Form submitted successfully");
+                    alert("Form submitted successfully");
+                    contactForm.reset(); // Clear form fields
+                })
+                .catch(error => {
+                    // Handle error
+                    console.error("Error submitting form:", error);
+                    alert("Failed to submit form. Please try again later.");
+                });
+            });
+        });
+    </script>
+    
+    <script src="script.js"></script>
+
+</body>
+</html>
